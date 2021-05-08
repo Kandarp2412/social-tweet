@@ -7,11 +7,7 @@ import MyPost from "../models/MyPost";
 import axios from "axios";
 import Backdrop from "@material-ui/core/Backdrop";
 import { makeStyles } from "@material-ui/core/styles";
-
-// import post from "../../../../server/db/post";
-// import AddPost from "../models/AddPost";
-
-// import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
+import { serverUrl } from "../config";
 
 const useStyles = makeStyles({
   modal: {
@@ -74,7 +70,7 @@ function ProfilePage({ openModal, setOpenModal }) {
   useEffect(() => {
     if (user)
       axios
-        .post("http://localhost:8081/mypost", { userName: userName })
+        .post(serverUrl + "/mypost", { userName: userName })
         .then((result) => {
           // setFollowers(result.data.follower);
           console.log(result);
@@ -91,7 +87,7 @@ function ProfilePage({ openModal, setOpenModal }) {
 
   useEffect(() => {
     axios
-      .post("http://localhost:8081/userfollowing", { userName: userName })
+      .post(serverUrl + "/userfollowing", { userName: userName })
       .then((result) => {
         console.log("following");
         console.log(result);
@@ -104,7 +100,7 @@ function ProfilePage({ openModal, setOpenModal }) {
 
   useEffect(() => {
     axios
-      .post("http://localhost:8081/userfollower", { userName: userName })
+      .post(serverUrl + "/userfollower", { userName: userName })
       .then((result) => {
         console.log(result);
         setFollowerCount(result.data.data.length);
@@ -121,7 +117,7 @@ function ProfilePage({ openModal, setOpenModal }) {
   const handleFollowing = (e) => {
     setFollowingModal(true);
     axios
-      .post("http://localhost:8081/userfollowing", { userName: userName })
+      .post(serverUrl + "/userfollowing", { userName: userName })
       .then((result) => {
         console.log(result);
         setFollowing(result.data.data);
@@ -131,7 +127,7 @@ function ProfilePage({ openModal, setOpenModal }) {
   const handleFollowers = (modalState) => {
     setFollowerModal(modalState);
     axios
-      .post("http://localhost:8081/userfollower", { userName: userName })
+      .post(serverUrl + "/userfollower", { userName: userName })
       .then((result) => {
         console.log(result);
         setFollower(result.data.data);
@@ -142,7 +138,7 @@ function ProfilePage({ openModal, setOpenModal }) {
     // console.log(myPost[0]?.userId);
     if (user)
       axios
-        .post("http://localhost:8081/follow", {
+        .post(serverUrl + "/follow", {
           userId: user.uid,
           displayName: userName,
         })

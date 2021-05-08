@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { serverUrl } from "../config";
 import globalContext from "./globalContext";
 
 function GlobalState({ children }) {
@@ -24,7 +25,7 @@ function GlobalState({ children }) {
     if (user) {
       setLoading(true);
       axios
-        .post("http://localhost:8081/Allpost", {
+        .post(serverUrl + "/Allpost", {
           userId: user.uid,
         })
         .then(async (result) => {

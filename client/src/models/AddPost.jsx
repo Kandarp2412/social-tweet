@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import globalContext from "../context/globalContext";
 import Backdrop from "@material-ui/core/Backdrop";
 import firebase from "../firebase/config";
+import { serverUrl } from "../config";
 // import { post } from "../../../../server/db";
 
 const useStyles = makeStyles({
@@ -94,7 +95,7 @@ function AddPost({ openModal, setOpenModal }) {
     formData.append("description", description);
     formData.append("uid", user.uid);
     axios
-      .post("http://localhost:8081/Addpost", formData, {
+      .post(serverUrl + "/Addpost", formData, {
         headers: { "content-type": "multipart/form-data" },
       })
       .then((result) => {

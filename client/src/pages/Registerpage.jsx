@@ -8,6 +8,7 @@ import { Button, Divider, TextField } from "@material-ui/core";
 import axios from "axios";
 import { Card } from "react-bootstrap";
 import Headerpage from "./Headerpage";
+import { serverUrl } from "../config";
 
 // import globalContext from "../context/globalContext";
 
@@ -36,7 +37,7 @@ function Registerpage() {
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        axios.post("http://localhost:8081/addUser", {
+        axios.post(serverUrl + "/addUser", {
           displayName: result.user.displayName || undefined,
           photoURL: result.user.photoURL || undefined,
           email: result.user.email || undefined,
@@ -109,7 +110,7 @@ function Registerpage() {
           //   });
           let photoURL;
           let full_name = name;
-          axios.post("http://localhost:8081/addUser", {
+          axios.post(serverUrl + "/addUser", {
             displayName: username || undefined,
             photoURL,
             email: userCredential.user.email || undefined,

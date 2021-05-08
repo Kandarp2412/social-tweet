@@ -12,6 +12,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import globalContext from "../context/globalContext";
 import moment from "moment";
 import { Divider } from "@material-ui/core";
+import { serverUrl } from "../config";
 
 const useStyles = makeStyles({
   root: {
@@ -61,7 +62,7 @@ function MyPost({ openModal, setOpenModal, myPost, userNameParam }) {
   const handleLike = (e, id) => {
     console.log(id);
     axios
-      .post("http://localhost:8081/mylikes", { userId: user.uid, id })
+      .post(serverUrl + "mylikes", { userId: user.uid, id })
       .then((result) => {
         setLike(!like);
         setFlag(!flag);

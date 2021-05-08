@@ -29,6 +29,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Paper from "@material-ui/core/Paper";
 import Draggable from "react-draggable";
 import RepeatOutlinedIcon from "@material-ui/icons/RepeatOutlined";
+import { serverUrl } from "../config";
 
 const useStyles = makeStyles({
   root: {
@@ -102,7 +103,7 @@ function Dashboard({ openModal, setOpenModal }) {
     console.log(pId);
     setPostId(pId);
     axios
-      .post("http://localhost:8081/showcomment", { postId: pId })
+      .post(serverUrl + "/showcomment", { postId: pId })
       .then((result) => {
         console.log(result);
         setShowComment(result.data.data);
@@ -112,7 +113,7 @@ function Dashboard({ openModal, setOpenModal }) {
 
   const handleLike = (e, id) => {
     axios
-      .post("http://localhost:8081/mylikes", { userId: user.uid, id })
+      .post(serverUrl + "/mylikes", { userId: user.uid, id })
       .then((result) => {
         setLike(!like);
         setFlag(!flag);
@@ -123,7 +124,7 @@ function Dashboard({ openModal, setOpenModal }) {
     // console.log(pId);
     if (uid === user.uid) {
       axios
-        .post("http://localhost:8081/delete", { postId: deletePId })
+        .post(serverUrl + "/delete", { postId: deletePId })
         .then((result) => {
           // alert("Deleted");
           console.log(result);
@@ -143,7 +144,7 @@ function Dashboard({ openModal, setOpenModal }) {
   useEffect(() => {
     // console.log(user.uid);
     axios
-      .post("http://localhost:8081/suggestion", {
+      .post(`${serverUrl}/suggestion`, {
         userId: user?.uid,
       })
       .then((result) => {
@@ -194,7 +195,7 @@ function Dashboard({ openModal, setOpenModal }) {
 
   const handleComment = (e, pId) => {
     axios
-      .post("http://localhost:8081/addcomment", {
+      .post(serverUrl + "/addcomment", {
         userId: user.uid,
         postId: pId,
         commentInput,
@@ -219,7 +220,7 @@ function Dashboard({ openModal, setOpenModal }) {
   const handleRetweet = (e, retweet, userUId, userName, postImg) => {
     // console.log(photoUrl);
     axios
-      .post("http://localhost:8081/retweet", {
+      .post(serverUrl + "/retweet", {
         discription: retweet,
         userUId: userUId,
         username: userName,

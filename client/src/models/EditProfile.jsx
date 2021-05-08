@@ -10,6 +10,7 @@ import { Button, TextField } from "@material-ui/core";
 import globalContext from "../context/globalContext";
 import axios from "axios";
 import { useHistory } from "react-router";
+import { serverUrl } from "../config";
 
 const useStyles = makeStyles({
   root: {
@@ -60,7 +61,7 @@ function EditProfile({ openModal, setOpenModal }) {
       })
       .then(async function (res) {
         console.log("called");
-        let dbUpdate = await axios.post("http://localhost:8081/updateUser", {
+        let dbUpdate = await axios.post(serverUrl + "/updateUser", {
           userId: user.uid,
           ...params,
         });
