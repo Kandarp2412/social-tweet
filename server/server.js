@@ -9,7 +9,7 @@ const user = require("./db/user");
 const { Op, Sequelize } = require("sequelize");
 var app = express();
 
-const PORT = 8080;
+const PORT = 8081;
 
 app.use(express.static("public"));
 
