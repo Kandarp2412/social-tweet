@@ -69,9 +69,9 @@ function Loginpage() {
       .catch((err) => alert(err));
   };
 
-  // const handleRegister = (e) => {
-  //   history.push("/Registerpage");
-  // };
+  const handleRegister = (e) => {
+    history.push("/Registerpage");
+  };
 
   firebase.auth().onAuthStateChanged((u) => {
     setUser(u);
@@ -169,7 +169,15 @@ function Loginpage() {
                 Login
               </Button>
               <br />
-              Not a User? <a href="/RegisterPage">Signup now</a>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                Not a User?{" "}
+                <h5
+                  style={{ cursor: "pointer", color: "blue" }}
+                  onClick={(e) => handleRegister(e)}
+                >
+                  Signup now
+                </h5>
+              </div>
             </Card.Text>
             <div style={{ display: "flex", alignItems: "center" }}>
               <Divider

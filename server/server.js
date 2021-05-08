@@ -13,7 +13,7 @@ const PORT = 3001;
 
 app.use(express.static("public"));
 
-app.use(cors());
+app.use(cors("https://social-tweet.netlify.app"));
 app.use(bodyparser.json());
 app.use(fileupload());
 
