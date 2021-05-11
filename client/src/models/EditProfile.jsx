@@ -9,7 +9,7 @@ import { Button, TextField } from "@material-ui/core";
 // import { saveLocal } from "../utils/authLocalStorage";
 import globalContext from "../context/globalContext";
 import axios from "axios";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router-dom";
 import { serverUrl } from "../config";
 
 const useStyles = makeStyles({
@@ -52,6 +52,8 @@ function EditProfile({ openModal, setOpenModal }) {
     }
   };
 
+  // let { userName } = useParams();
+
   const userUpdate = ({ ...params }) => {
     user
       .updateProfile({
@@ -66,7 +68,7 @@ function EditProfile({ openModal, setOpenModal }) {
           ...params,
         });
         setFlag(!flag);
-        window.location.replace("/profilepage");
+        window.location.replace("/#/profilepage/" + name);
         console.log(res);
         console.log(dbUpdate);
         // alert("Name and URL both updated");

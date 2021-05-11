@@ -1,9 +1,19 @@
 var Sequelize = require("sequelize");
 
-var sequelize = new Sequelize("social", "root", "", {
-  host: "localhost",
-  dialect: "mysql",
-});
+// var sequelize = new Sequelize("social", "root", "", {
+//   host: "localhost",
+//   dialect: "mysql",
+// });
+
+var sequelize = new Sequelize(
+  "bazijjz8tczocx35s7ru",
+  "uojh02inkwlffqmm",
+  "CeIGL3HeuumXUKHq6Yzj",
+  {
+    host: "bazijjz8tczocx35s7ru-mysql.services.clever-cloud.com",
+    dialect: "mysql",
+  }
+);
 
 let db = {};
 db.sequelize = sequelize;

@@ -1,6 +1,6 @@
 import "./App.css";
 import Loginpage from "./pages/Loginpage";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Registerpage from "./pages/Registerpage";
 import React, { useContext, useEffect } from "react";
 import Dashboard from "./pages/Dashboard";

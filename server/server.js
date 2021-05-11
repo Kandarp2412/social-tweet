@@ -9,11 +9,17 @@ const user = require("./db/user");
 const { Op, Sequelize } = require("sequelize");
 var app = express();
 
-const PORT = 3001;
+var corsOptions = {
+  origin: "https://social-twitter-clone.herokuapp.com",
+  optionsSuccessStatus: 200,
+  methods: "GET,PUT,POST",
+};
+
+const PORT = 8081;
 
 app.use(express.static("public"));
 
-app.use(cors("https://social-tweet.netlify.app"));
+app.use(cors(corsOptions));
 app.use(bodyparser.json());
 app.use(fileupload());
 

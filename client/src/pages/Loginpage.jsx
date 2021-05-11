@@ -169,14 +169,24 @@ function Loginpage() {
                 Login
               </Button>
               <br />
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  width: "230px",
+                }}
+              >
                 Not a User?{" "}
-                <h5
-                  style={{ cursor: "pointer", color: "blue" }}
+                <h4
+                  style={{
+                    cursor: "pointer",
+                    color: "#3f51b5",
+                    marginLeft: "2px",
+                  }}
                   onClick={(e) => handleRegister(e)}
                 >
                   Signup now
-                </h5>
+                </h4>
               </div>
             </Card.Text>
             <div style={{ display: "flex", alignItems: "center" }}>

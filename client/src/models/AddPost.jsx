@@ -79,8 +79,8 @@ function AddPost({ openModal, setOpenModal }) {
       formData.append("photoUrl", photoUrl);
       setImage(null);
     }
-    console.log(snapshot);
-    console.log(photoUrl);
+    // console.log(snapshot);
+    // console.log(photoUrl);
     // } catch (err) {
     //   console.log(err);
     // }

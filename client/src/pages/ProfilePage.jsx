@@ -202,19 +202,66 @@ function ProfilePage({ openModal, setOpenModal }) {
         </Avatar>
         {/* </div> */}
 
-        {userName === user.displayName ? (
-          <h4
-            style={{
-              marginRight: "50px",
-              cursor: "pointer",
-              float: "right",
-              // marginTop: "-180px",
-            }}
-            onClick={(e) => handleEditProfile(e)}
-          >
-            Edit Profile
-          </h4>
-        ) : null}
+        {
+          userName === user.displayName ? (
+            <h4
+              style={{
+                marginRight: "50px",
+                cursor: "pointer",
+                float: "right",
+                // marginTop: "-180px",
+              }}
+              onClick={(e) => handleEditProfile(e)}
+            >
+              Edit Profile
+            </h4>
+          ) : (
+            <h4
+              style={{
+                marginRight: "50px",
+                cursor: "pointer",
+                float: "right",
+                // marginTop: "-180px",
+              }}
+            ></h4>
+          )
+          // (
+          // <div
+          //   style={{
+          //     display: "flex",
+          //     justifyContent: "space-between",
+          //     marginTop: "100px",
+          //   }}
+          // >
+          //   <Avatar
+          //     src={myPost && myPost.length > 0 && myPost[0]?.user?.photoURL}
+          //     style={{
+          //       fontSize: "150px",
+          //       display: "flex",
+          //       justifyContent: "center",
+          //       // marginLeft: "675px",
+          //       float: "center",
+          //       height: "200px",
+          //       width: "200px",
+          //       cursor: "pointer",
+          //     }}
+          //     // onClick={(e) => handleEditProfile(e)}
+          //   >
+          //     {userName ? userName.charAt(0) : add.charAt(0)}
+          //   </Avatar>
+          //   <h4
+          //     style={{
+          //       marginRight: "50px",
+          //       cursor: "pointer",
+          //       float: "right",
+          //       // marginTop: "-180px",
+          //     }}
+          //     // onClick={(e) => handleEditProfile(e)}
+          //   >
+          //     {/* Edit Profile */}
+          //   </h4>
+          // </div>)
+        }
         {/* </div> */}
         {/* <div></div> */}
         {/* </div> */}
